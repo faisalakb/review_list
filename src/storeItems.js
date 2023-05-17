@@ -1,6 +1,6 @@
 import { todoList, display } from './status.js';
 
-const inp = document.getElementById('inpId');
+const inputValue = document.getElementById('inpId');
 let list = [];
 let id = 0;
 
@@ -11,21 +11,21 @@ if (storedList && storedList.length > 0) {
   id = todoList[todoList.length - 1].index;
 }
 
-inp.addEventListener('keypress', (event) => {
+inputValue.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
-    if (inp.value === '') {
+    if (inputValue.value === '') {
       console.log('Please enter a todo');
     } else {
-      todoList.push({ index: id += 1, title: inp.value, completed: false });
+      todoList.push({ index: id += 1, title: inputValue.value, completed: false });
       list = JSON.stringify(todoList);
       localStorage.setItem('listItems12', list);
     }
   }
 });
 
-inp.addEventListener('keyup', (event) => {
+inputValue.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
-    inp.value = '';
+    inputValue.value = '';
     display();
   }
 });
